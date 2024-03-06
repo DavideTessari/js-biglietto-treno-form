@@ -20,4 +20,14 @@ button {
 .ms-wrapper {
     border: 2px solid white;
     padding: 50px;
+    box-shadow: 10px 7px 5px grey;
+}
+
+.wrapper {
+    background-color: white;
+    padding: 20px;
+}
+
+hr {
+    border: 2px solid green;
 }
