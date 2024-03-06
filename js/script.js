@@ -20,28 +20,33 @@ generateButton.addEventListener('click', function () {
     
     // const userNameInput = document.querySelector('#user-name');
     const userName = document.querySelector('#user-name').value;
+
+    const nameLastname = userName;
+
+    // stamparlo nel p con id user-message
+    const userMessageP = document.querySelector('#user-message');
+    userMessageP.innerHTML = nameLastname;
+    userMessageP.classList.add('active');
+
     const userKm = document.querySelector('#user-km').value;
     const userAge = document.querySelector('#user-age').value;
-
     // Il prezzo del biglietto è definito in base ai km (0.21 € al km)
     let userPrice = userKm * 0.21;
 
     // Applico uno sconto del 20% per i minorenni, applico uno sconto del 40% per gli over 65.
     let price = userPrice;
-    if (userAge === 'Minorenne') {
+    if (userAge === "Minorenne") {
         price = price - (price * 20 / 100);
         alert("Hai ottenuto il 20% di sconto 👌");
-    } else if (userAge === 'Over 65') {
+    } else if (userAge > "Over 65") {
         price = price - (price * 40 / 100);
         alert("Hai ottenuto il 40% di sconto 👌");
     };
 
-     // concatenare le 3 informazioni
-     const ticket = userName + userKm + userAge;
-
-    // stamparlo nel div con id user-message
+    // Stampo il risultato (2 decimali)
     const userMessage = document.querySelector('#user-message');
-    userMessage.innerHTML = 'La tua password è: ' + ticket;
+    const priceFixed = price.toFixed(2);
+    userMessage.innerHTML = priceFixed;
     userMessage.classList.add('active');
 });
 
@@ -55,4 +60,3 @@ clearButton.addEventListener('click', function() {
     userMessage.innerHTML = '';
     userMessage.classList.remove('active');
 });
-
