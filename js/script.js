@@ -28,23 +28,23 @@ generateButton.addEventListener('click', function () {
     userMessageP.innerHTML = nameLastname;
     userMessageP.classList.add('active');
 
-    const userKm = document.querySelector('#user-km').value;
+    const userKm = parseInt(document.querySelector('#user-km').value);
     const userAge = document.querySelector('#user-age').value;
     // Il prezzo del biglietto è definito in base ai km (0.21 € al km)
     let userPrice = userKm * 0.21;
 
     // Applico uno sconto del 20% per i minorenni, applico uno sconto del 40% per gli over 65.
     let price = userPrice;
-    if (userAge === "Minorenne") {
+    if (userAge < 18) {
         price = price - (price * 20 / 100);
         alert("Hai ottenuto il 20% di sconto 👌");
-    } else if (userAge > "Over 65") {
+    } else if (userAge > 65) {
         price = price - (price * 40 / 100);
         alert("Hai ottenuto il 40% di sconto 👌");
     };
 
     // Stampo il risultato (2 decimali)
-    const userMessage = document.querySelector('#user-message');
+    const userMessage = document.querySelector('#user-price');
     const priceFixed = price.toFixed(2);
     userMessage.innerHTML = priceFixed;
     userMessage.classList.add('active');
