@@ -37,10 +37,14 @@ generateButton.addEventListener('click', function () {
     let price = userPrice;
     if (userAge < 18) {
         price = price - (price * 20 / 100);
-        alert("Hai ottenuto il 20% di sconto 👌");
+        const userSales = document.querySelector('#user-sales');
+        userSales.innerHTML = "Hai ottenuto il 20% di sconto 👌";
+        userSales.classList.add('active');
     } else if (userAge > 65) {
         price = price - (price * 40 / 100);
-        alert("Hai ottenuto il 40% di sconto 👌");
+        const userSales = document.querySelector('#user-sales');
+        userSales.innerHTML = "Hai ottenuto il 40% di sconto 👌";
+        userSales.classList.add('active');
     };
 
     // Stampo il risultato (2 decimali)
